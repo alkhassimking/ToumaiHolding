@@ -1,4 +1,4 @@
-const CACHE_NAME = "toumai-v3";
+const CACHE_NAME = "toumai-v4";
 const OFFLINE_URL = "/offline.html";
 
 const PRECACHE = [
@@ -7,7 +7,8 @@ const PRECACHE = [
   "/manifest.json",
   "/favicon.ico",
   "/favicon-32x32.png",
-  "/logo.png",
+  "/logos/Toumai%20Holding.png",
+  "/logos/Favicon.png",
   "/android-chrome-192x192.png",
 ];
 

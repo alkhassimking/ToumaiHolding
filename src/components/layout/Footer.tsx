@@ -2,33 +2,14 @@
 
 import Link from "next/link";
 import Logo from "@/components/ui/Logo";
+import SocialLinks from "@/components/ui/SocialLinks";
 import { useTranslation } from "@/contexts/LanguageProvider";
 import {
   contactPhones,
   contactEmail,
   partnershipEmail,
-  socialLinks,
 } from "@/data/assets";
-import {
-  Linkedin,
-  X,
-  Facebook,
-  Instagram,
-  Mail,
-  Globe,
-  MapPin,
-  Phone,
-} from "lucide-react";
-
-const socialIcons: Record<
-  string,
-  React.ComponentType<{ className?: string }>
-> = {
-  Linkedin,
-  X,
-  Facebook,
-  Instagram,
-};
+import { Mail, Globe, MapPin, Phone } from "lucide-react";
 
 export default function Footer() {
   const { t, locale } = useTranslation();
@@ -60,23 +41,7 @@ export default function Footer() {
             <p className="mt-6 text-silver text-sm leading-relaxed">
               {t.footer.tagline}
             </p>
-            <div className="flex gap-3 mt-6 flex-wrap">
-              {socialLinks.map((social) => {
-                const Icon = socialIcons[social.icon];
-                return (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full glass flex items-center justify-center text-silver hover:text-gold hover:border-gold/40 transition-all duration-300"
-                    aria-label={social.label}
-                  >
-                    <Icon className="w-4 h-4" />
-                  </a>
-                );
-              })}
-            </div>
+            <SocialLinks className="mt-6" />
           </div>
 
           <div>

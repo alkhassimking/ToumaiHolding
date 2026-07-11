@@ -6,12 +6,11 @@ export const SITE_DESCRIPTION =
   "Toumai Holding is a diversified investment and technology group headquartered in Chad, building innovative companies in fintech, logistics, telecommunications, AI, digital infrastructure, and sustainable business development across Africa.";
 export const OG_DESCRIPTION =
   "Innovation • Growth • Future | ابتكار • نمو • مستقبل";
-export const ASSET_VERSION = "20260711";
+export const ASSET_VERSION = "20260711b";
 
-const LOGO_URL = `${SITE_URL}/logo.png?v=${ASSET_VERSION}`;
-const LOGO_FALLBACK = `${SITE_URL}/logos/toumai-holding-logo.png?v=${ASSET_VERSION}`;
+const LOGO_PATH = "/logos/Toumai%20Holding.png";
+const LOGO_URL = `${SITE_URL}${LOGO_PATH}?v=${ASSET_VERSION}`;
 const OG_IMAGE = `${SITE_URL}/og-image.png?v=${ASSET_VERSION}`;
-const FAVICON_URL = `${SITE_URL}/favicon.ico?v=${ASSET_VERSION}`;
 
 export const organizationSchema = {
   "@type": "Organization",
@@ -26,11 +25,11 @@ export const organizationSchema = {
     url: LOGO_URL,
     contentUrl: LOGO_URL,
     caption: "Toumai Holding logo",
-    width: 512,
-    height: 512,
+    width: 500,
+    height: 500,
     encodingFormat: "image/png",
   },
-  image: [LOGO_URL, LOGO_FALLBACK, OG_IMAGE],
+  image: [LOGO_URL, OG_IMAGE],
   description: SITE_DESCRIPTION,
   slogan: "Building Africa Through Innovation",
   foundingLocation: {
@@ -102,8 +101,8 @@ export const logoSchema = {
   contentUrl: LOGO_URL,
   caption: "Toumai Holding | توماي القابضة",
   name: "Toumai Holding Logo",
-  width: 512,
-  height: 512,
+  width: 500,
+  height: 500,
   encodingFormat: "image/png",
   representativeOfPage: true,
 };

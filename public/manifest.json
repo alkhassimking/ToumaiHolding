@@ -63,6 +63,18 @@
       "purpose": "maskable"
     },
     {
+      "src": "/logos/Toumai Holding.png",
+      "sizes": "500x500",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/logos/Favicon.png",
+      "sizes": "500x500",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
       "src": "/logo.png",
       "sizes": "512x512",
       "type": "image/png",
