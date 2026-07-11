@@ -1,0 +1,87 @@
+{
+  "id": "/",
+  "name": "Toumai Holding | توماي القابضة",
+  "short_name": "Toumai Holding",
+  "description": "Toumai Holding is a diversified investment and technology group headquartered in Chad, building Africa through innovation.",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "any",
+  "background_color": "#050505",
+  "theme_color": "#d4af37",
+  "lang": "en",
+  "dir": "auto",
+  "categories": ["business", "finance", "productivity"],
+  "icons": [
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon-48x48.png",
+      "sizes": "48x48",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon-64x64.png",
+      "sizes": "64x64",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/maskable-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Ecosystem",
+      "short_name": "Ecosystem",
+      "url": "/#ecosystem",
+      "icons": [{ "src": "/favicon-48x48.png", "sizes": "48x48", "type": "image/png" }]
+    },
+    {
+      "name": "Partnership",
+      "short_name": "Partner",
+      "url": "/#partnership",
+      "icons": [{ "src": "/favicon-48x48.png", "sizes": "48x48", "type": "image/png" }]
+    }
+  ],
+  "prefer_related_applications": false
+}
