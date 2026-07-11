@@ -2,7 +2,7 @@ import type { Translations } from "../types";
 
 const en: Translations = {
   meta: {
-    title: "Toumai Holding | Building Africa Through Innovation",
+    title: "توماي القابضة | Toumai Holding",
     description:
       "Toumai Holding is a diversified investment and technology group headquartered in Chad, building innovative companies in fintech, logistics, telecommunications, AI, digital infrastructure, and sustainable business development across Africa.",
     keywords: [

@@ -2,7 +2,7 @@ import type { Translations } from "../types";
 
 const ar: Translations = {
   meta: {
-    title: "Toumai Holding | Building Africa Through Innovation",
+    title: "توماي القابضة | Toumai Holding",
     description:
       "توماي القابضة مجموعة استثمارية وتقنية متنوعة مقرها تشاد، تبني شركات مبتكرة في التكنولوجيا المالية واللوجستيات والاتصالات والذكاء الاصطناعي والبنية التحتية الرقمية والتنمية المستدامة في جميع أنحاء أفريقيا.",
     keywords: [

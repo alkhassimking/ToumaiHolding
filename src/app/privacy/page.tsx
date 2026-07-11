@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import LegalPage from "@/components/legal/LegalPage";
-import { breadcrumbSchema, SITE_DESCRIPTION } from "@/data/schema";
+import { breadcrumbSchema, SITE_TITLE, SITE_DESCRIPTION } from "@/data/schema";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description: `Privacy Policy — ${SITE_DESCRIPTION}`,
+  title: { absolute: SITE_TITLE },
+  description: SITE_DESCRIPTION,
   alternates: { canonical: "https://www.toumaiholding.com/privacy" },
   openGraph: {
-    title: "Privacy Policy | Toumai Holding",
-    description: "How Toumai Holding collects, uses, and protects your information.",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     url: "https://www.toumaiholding.com/privacy",
   },
 };

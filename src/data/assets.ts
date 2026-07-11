@@ -60,8 +60,24 @@ export const partnershipEmail = "Partnership@toumaiholding.com";
 export const contactEmail = "contact@toumaiholding.com";
 
 export const socialLinks = [
-  { label: "LinkedIn", href: "https://linkedin.com/company/toumaiholding", icon: "Linkedin" },
-  { label: "Twitter", href: "https://twitter.com/toumaiholding", icon: "Twitter" },
-  { label: "Facebook", href: "https://facebook.com/toumaiholding", icon: "Facebook" },
-  { label: "Instagram", href: "https://instagram.com/toumaiholding", icon: "Instagram" },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/toumai-holding/",
+    icon: "Linkedin",
+  },
+  {
+    label: "X",
+    href: "https://twitter.com/toumaiholding",
+    icon: "X",
+  },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/share/1CjbbdRL95/?mibextid=wwXIfr",
+    icon: "Facebook",
+  },
+  {
+    label: "Instagram",
+    href: "https://instagram.com/toumaiholding",
+    icon: "Instagram",
+  },
 ];

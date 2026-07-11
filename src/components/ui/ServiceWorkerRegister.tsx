@@ -8,6 +8,8 @@ export default function ServiceWorkerRegister() {
 
     const register = async () => {
       try {
+        const regs = await navigator.serviceWorker.getRegistrations();
+        await Promise.all(regs.map((reg) => reg.update()));
         await navigator.serviceWorker.register("/sw.js", { scope: "/" });
       } catch {
         return;

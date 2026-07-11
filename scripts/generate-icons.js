@@ -28,14 +28,17 @@ async function squarePng(size, outPath, { padding = 0.12, bg = "#050505" } = {})
 
   const inner = Math.round(size * (1 - padding * 2));
   const logo = await sharp(source)
-    .resize(inner, inner, { fit: "contain", background: { r: 0, g: 0, b: 0, alpha: 0 } })
+    .resize(inner, inner, {
+      fit: "contain",
+      background: { r: 0, g: 0, b: 0, alpha: 0 },
+    })
     .png()
     .toBuffer();
 
   const left = Math.round((size - inner) / 2);
   await canvas
     .composite([{ input: logo, left, top: left }])
-    .png({ compressionLevel: 9, quality: 90 })
+    .png({ compressionLevel: 9 })
     .toFile(outPath);
 }
 
@@ -59,39 +62,32 @@ async function main() {
     console.log("wrote", path.relative(root, out));
   }
 
-  // Maskable: more padding for safe zone
   await squarePng(512, path.join(publicDir, "maskable-icon-512.png"), {
     padding: 0.22,
   });
-  console.log("wrote public/maskable-icon-512.png");
 
-  // Clean logo for Google (white-ish safe square)
-  await squarePng(512, path.join(publicDir, "logo.png"), { padding: 0.1 });
-
-  // Multi-resolution ICO from 16/32/48
-  const png16 = await sharp(path.join(publicDir, "favicon-16x16.png")).png().toBuffer();
-  const png32 = await sharp(path.join(publicDir, "favicon-32x32.png")).png().toBuffer();
-  const png48 = await sharp(path.join(publicDir, "favicon-48x48.png")).png().toBuffer();
-
-  // Prefer a high-quality 32px ICO fallback (widely supported)
+  const png32 = await sharp(path.join(publicDir, "favicon-32x32.png"))
+    .png()
+    .toBuffer();
   await sharp(png32).resize(32, 32).toFile(path.join(publicDir, "favicon.ico"));
-  console.log("wrote public/favicon.ico");
 
-  // App router icons
+  const png64 = await sharp(path.join(publicDir, "favicon-64x64.png"))
+    .png()
+    .toBuffer();
+  const b64 = png64.toString("base64");
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Toumai Holding">
+  <rect width="64" height="64" rx="12" fill="#050505"/>
+  <image href="data:image/png;base64,${b64}" x="0" y="0" width="64" height="64" preserveAspectRatio="xMidYMid meet"/>
+</svg>`;
+  await fs.promises.writeFile(path.join(publicDir, "favicon.svg"), svg);
+
   await sharp(path.join(publicDir, "apple-touch-icon.png"))
     .png()
     .toFile(path.join(root, "src", "app", "apple-icon.png"));
   await sharp(path.join(publicDir, "android-chrome-192x192.png"))
     .png()
     .toFile(path.join(root, "src", "app", "icon.png"));
-  console.log("wrote src/app icons");
 
-  // Standalone favicon SVG (no external image dependency)
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Toumai Holding">
-  <rect width="100" height="100" rx="18" fill="#050505"/>
-  <image href="/logos/Favicon.png" x="12" y="12" width="76" height="76" preserveAspectRatio="xMidYMid meet"/>
-</svg>`;
-  await fs.promises.writeFile(path.join(publicDir, "favicon.svg"), svg);
   console.log("done from", path.relative(root, source));
 }
 

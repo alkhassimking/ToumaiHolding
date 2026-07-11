@@ -8,13 +8,14 @@ import SkipLink from "@/components/ui/SkipLink";
 import ServiceWorkerRegister from "@/components/ui/ServiceWorkerRegister";
 import {
   SITE_TITLE,
-  SITE_TITLE_BILINGUAL,
   SITE_DESCRIPTION,
   OG_DESCRIPTION,
+  ASSET_VERSION,
   jsonLdGraph,
 } from "@/data/schema";
 
 const SITE_URL = "https://www.toumaiholding.com";
+const v = ASSET_VERSION;
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -42,10 +43,7 @@ const notoArabic = Noto_Sans_Arabic({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: {
-    default: SITE_TITLE,
-    template: `%s | Toumai Holding`,
-  },
+  title: SITE_TITLE,
   description: SITE_DESCRIPTION,
   keywords: [
     "Toumai Holding",
@@ -70,7 +68,7 @@ export const metadata: Metadata = {
     "TVentures",
     "Digital Transformation",
   ],
-  authors: [{ name: SITE_TITLE_BILINGUAL, url: SITE_URL }],
+  authors: [{ name: SITE_TITLE, url: SITE_URL }],
   creator: "Toumai Holding",
   publisher: "Toumai Holding",
   applicationName: "Toumai Holding",
@@ -96,15 +94,22 @@ export const metadata: Metadata = {
     locale: "en_US",
     alternateLocale: ["fr_FR", "ar_TD"],
     url: SITE_URL,
-    siteName: SITE_TITLE_BILINGUAL,
+    siteName: SITE_TITLE,
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     images: [
       {
-        url: "/og-image.png",
+        url: `/og-image.png?v=${v}`,
         width: 1200,
         height: 630,
-        alt: SITE_TITLE_BILINGUAL,
+        alt: SITE_TITLE,
+        type: "image/png",
+      },
+      {
+        url: `/logo.png?v=${v}`,
+        width: 512,
+        height: 512,
+        alt: SITE_TITLE,
         type: "image/png",
       },
     ],
@@ -113,7 +118,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: SITE_TITLE,
     description: OG_DESCRIPTION,
-    images: ["/og-image.png"],
+    images: [`/og-image.png?v=${v}`],
     creator: "@toumaiholding",
   },
   robots: {
@@ -131,26 +136,36 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
-      { url: "/favicon-64x64.png", sizes: "64x64", type: "image/png" },
-      { url: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
-      { url: "/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
-      { url: "/logo.png", sizes: "512x512", type: "image/png" },
+      { url: `/favicon.ico?v=${v}`, sizes: "any" },
+      { url: `/favicon.svg?v=${v}`, type: "image/svg+xml" },
+      { url: `/favicon-16x16.png?v=${v}`, sizes: "16x16", type: "image/png" },
+      { url: `/favicon-32x32.png?v=${v}`, sizes: "32x32", type: "image/png" },
+      { url: `/favicon-48x48.png?v=${v}`, sizes: "48x48", type: "image/png" },
+      { url: `/favicon-64x64.png?v=${v}`, sizes: "64x64", type: "image/png" },
+      {
+        url: `/android-chrome-192x192.png?v=${v}`,
+        sizes: "192x192",
+        type: "image/png",
+      },
+      {
+        url: `/android-chrome-512x512.png?v=${v}`,
+        sizes: "512x512",
+        type: "image/png",
+      },
     ],
     apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+      {
+        url: `/apple-touch-icon.png?v=${v}`,
+        sizes: "180x180",
+        type: "image/png",
+      },
     ],
-    shortcut: ["/favicon.ico"],
+    shortcut: [`/favicon.ico?v=${v}`],
     other: [
-      { rel: "mask-icon", url: "/logo.png", color: "#d4af37" },
-      { rel: "apple-touch-icon", url: "/apple-touch-icon.png", sizes: "180x180" },
+      { rel: "mask-icon", url: `/logo.png?v=${v}`, color: "#d4af37" },
     ],
   },
-  manifest: "/manifest.json",
+  manifest: `/manifest.json?v=${v}`,
   appleWebApp: {
     capable: true,
     title: "Toumai Holding",
@@ -159,7 +174,7 @@ export const metadata: Metadata = {
   other: {
     "theme-color": "#d4af37",
     "msapplication-TileColor": "#050505",
-    "msapplication-TileImage": "/android-chrome-192x192.png",
+    "msapplication-TileImage": `/android-chrome-192x192.png?v=${v}`,
     "msapplication-config": "/browserconfig.xml",
   },
 };
@@ -175,17 +190,51 @@ export default function RootLayout({
         <link rel="alternate" hrefLang="fr" href={SITE_URL} />
         <link rel="alternate" hrefLang="ar" href={SITE_URL} />
         <link rel="alternate" hrefLang="x-default" href={SITE_URL} />
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
-        <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64x64.png" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
-        <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="shortcut icon" href="/favicon.ico" />
-        <link rel="manifest" href="/manifest.json" />
+        <link rel="icon" href={`/favicon.ico?v=${v}`} sizes="any" />
+        <link rel="icon" type="image/svg+xml" href={`/favicon.svg?v=${v}`} />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href={`/favicon-16x16.png?v=${v}`}
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href={`/favicon-32x32.png?v=${v}`}
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="48x48"
+          href={`/favicon-48x48.png?v=${v}`}
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="64x64"
+          href={`/favicon-64x64.png?v=${v}`}
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="192x192"
+          href={`/android-chrome-192x192.png?v=${v}`}
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="512x512"
+          href={`/android-chrome-512x512.png?v=${v}`}
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href={`/apple-touch-icon.png?v=${v}`}
+        />
+        <link rel="shortcut icon" href={`/favicon.ico?v=${v}`} />
+        <link rel="manifest" href={`/manifest.json?v=${v}`} />
         <meta name="theme-color" content="#d4af37" media="(prefers-color-scheme: dark)" />
         <meta name="theme-color" content="#d4af37" media="(prefers-color-scheme: light)" />
         <meta name="mobile-web-app-capable" content="yes" />
@@ -206,9 +255,9 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               url: SITE_URL,
-              logo: `${SITE_URL}/logo.png`,
+              logo: `${SITE_URL}/logo.png?v=${v}`,
               name: "Toumai Holding",
-              alternateName: "توماي القابضة",
+              alternateName: ["توماي القابضة", "Toumai Holding"],
             }),
           }}
         />

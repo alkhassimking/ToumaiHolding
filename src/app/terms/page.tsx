@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import LegalPage from "@/components/legal/LegalPage";
-import { breadcrumbSchema, SITE_DESCRIPTION } from "@/data/schema";
+import { breadcrumbSchema, SITE_TITLE, SITE_DESCRIPTION } from "@/data/schema";
 
 export const metadata: Metadata = {
-  title: "Terms of Service",
-  description: `Terms of Service — ${SITE_DESCRIPTION}`,
+  title: { absolute: SITE_TITLE },
+  description: SITE_DESCRIPTION,
   alternates: { canonical: "https://www.toumaiholding.com/terms" },
   openGraph: {
-    title: "Terms of Service | Toumai Holding",
-    description: "Terms governing use of the Toumai Holding website.",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     url: "https://www.toumaiholding.com/terms",
   },
 };

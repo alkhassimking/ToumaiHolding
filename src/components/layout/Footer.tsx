@@ -11,7 +11,7 @@ import {
 } from "@/data/assets";
 import {
   Linkedin,
-  Twitter,
+  X,
   Facebook,
   Instagram,
   Mail,
@@ -25,7 +25,7 @@ const socialIcons: Record<
   React.ComponentType<{ className?: string }>
 > = {
   Linkedin,
-  Twitter,
+  X,
   Facebook,
   Instagram,
 };

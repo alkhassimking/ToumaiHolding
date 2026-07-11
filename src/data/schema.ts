@@ -1,15 +1,17 @@
 const SITE_URL = "https://www.toumaiholding.com";
 
-export const SITE_TITLE = "Toumai Holding | Building Africa Through Innovation";
-export const SITE_TITLE_BILINGUAL = "Toumai Holding | توماي القابضة";
+export const SITE_TITLE = "توماي القابضة | Toumai Holding";
+export const SITE_TITLE_BILINGUAL = "توماي القابضة | Toumai Holding";
 export const SITE_DESCRIPTION =
   "Toumai Holding is a diversified investment and technology group headquartered in Chad, building innovative companies in fintech, logistics, telecommunications, AI, digital infrastructure, and sustainable business development across Africa.";
 export const OG_DESCRIPTION =
-  "Building Africa Through Innovation | بناء أفريقيا من خلال الابتكار";
+  "Innovation • Growth • Future | ابتكار • نمو • مستقبل";
+export const ASSET_VERSION = "20260711";
 
-const LOGO_URL = `${SITE_URL}/logo.png`;
-const LOGO_FALLBACK = `${SITE_URL}/logos/toumai-holding-logo.png`;
-const OG_IMAGE = `${SITE_URL}/og-image.png`;
+const LOGO_URL = `${SITE_URL}/logo.png?v=${ASSET_VERSION}`;
+const LOGO_FALLBACK = `${SITE_URL}/logos/toumai-holding-logo.png?v=${ASSET_VERSION}`;
+const OG_IMAGE = `${SITE_URL}/og-image.png?v=${ASSET_VERSION}`;
+const FAVICON_URL = `${SITE_URL}/favicon.ico?v=${ASSET_VERSION}`;
 
 export const organizationSchema = {
   "@type": "Organization",
@@ -48,9 +50,9 @@ export const organizationSchema = {
   email: "contact@toumaiholding.com",
   telephone: ["+23590907657", "+23560907657"],
   sameAs: [
-    "https://linkedin.com/company/toumaiholding",
+    "https://www.linkedin.com/company/toumai-holding/",
     "https://twitter.com/toumaiholding",
-    "https://facebook.com/toumaiholding",
+    "https://www.facebook.com/share/1CjbbdRL95/?mibextid=wwXIfr",
     "https://instagram.com/toumaiholding",
   ],
   contactPoint: [

@@ -1,4 +1,4 @@
-const CACHE_NAME = "toumai-v2";
+const CACHE_NAME = "toumai-v3";
 const OFFLINE_URL = "/offline.html";
 
 const PRECACHE = [

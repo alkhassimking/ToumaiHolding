@@ -47,7 +47,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     if (!mounted) return;
     document.documentElement.lang = locale;
     document.documentElement.dir = dir;
-    document.title = "Toumai Holding | Building Africa Through Innovation";
+    document.title = "توماي القابضة | Toumai Holding";
   }, [locale, dir, mounted]);
 
   return (
